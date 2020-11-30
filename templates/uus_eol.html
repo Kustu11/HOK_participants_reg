@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card border-0 shadow my-5 bg-light">
+    <div class="card-body p-5">
+    <a class="navbar" href="/">
+          <img src="{{url_for('static', filename='hok.png')}}" height=200 width=200/>
+    </a>
+    <h1>Registreerimine Hiiumaa p&auml;evakule</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+ 	<li>{{message[1]}}</li>
+
+{% endfor %}
+
+</ul>
+{% endif %}
+{% endwith %}
+    <li>Sisesta enda andmed EOL-i koodi tegemiseks. Kui sul on kood olemas, aga oled jõudnud siia, liigu edasi</li>
+        <br>
+
+<form action="" method="post" role="form">
+    {{ form.csrf }}
+<div class="form-group">
+    <label for="sunniaeg">S&uuml;nniaeg</label>
+<input type="date" class="form-control" id="sunniaeg" name="sunniaeg" placeholder="S&uuml;nniaeg">
+    <br>
+    <label for="sugu">Sugu:</label>
+    <select for="Sugu" id="sugu" class="form-control" name = sugu>
+        <option value="M">Mees</option>
+        <option value="N">Naine</option>
+    </select>
+    <br>
+      <label for="elukoht">Maakond:</label>
+<input type="text" class="form-control" id="elukoht" name="Elukoht" placeholder="Maakond">
+    <br>
+    <label for="klubi">Klubi/Kool/Asutus/Ettevõte(Kui on)::</label>
+<input type="text" class="form-control" id="klubi" name="Klubi" placeholder="Klubi">
+    <br>
+    <label for="klubi">E-mail(Kui on)::</label>
+<input type="text" class="form-control" id="email" name="Email" placeholder="Email">
+    <br>
+<button type="submit" class="btn btn-success">Edasi</button>
+
+</div>
+</div>
+        </div>
+    </div>
+
+</form>
+
+{% endblock %}

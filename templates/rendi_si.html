@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card border-0 shadow my-5 bg-light">
+    <div class="card-body p-5">
+    <a class="navbar" href="/">
+          <img src="{{url_for('static', filename='hok.png')}}" height=200 width=200/>
+    </a>
+    <h1>Registreerimine Hiiumaa p&auml;evakule</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+ 	<li>{{message[1]}}</li>
+
+{% endfor %}
+
+</ul>
+{% endif %}
+{% endwith %}
+    <li>Sisesta (rendi) SI pulga number</li>
+        <br>
+
+<form action="" method="post" role="form">
+    {{ form.csrf }}
+<div class="form-group">
+    <label for="si_pulk">Si-pulga number</label>
+<input type="number" class="form-control" id="si_pulk" name="si_pulk" placeholder="SI-pulga number.">
+    <br>
+<button type="submit" class="btn btn-success">Edasi</button>
+
+</div>
+</div>
+        </div>
+    </div>
+
+</form>
+
+{% endblock %}

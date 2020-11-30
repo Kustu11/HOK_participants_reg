@@ -1,0 +1,18 @@
+body{
+    background: url("taust.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+}
+
+
+  /*
+
+  background-image: url("taust.jpg");
+    background-repeat: no-repeat;
+    background-size: 1920px;
+    background-position: center;
+
+  */

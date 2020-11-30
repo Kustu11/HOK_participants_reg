@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Required meta tags
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     Bootstrap CSS
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<link rel="stylesheet" media="screen" href="static/bootstrap.min.css">
+<link rel="stylesheet" href="static/bootstrap-theme.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  -->
+
+<div class="container">
+    <div class="card border-0 shadow my-5 bg-light">
+    <div class="card-body p-5">
+    <a class="navbar" href="/">
+          <img src="{{url_for('static', filename='hok.png')}}" height=200 width=200/>
+    </a>
+    <h1>Registreerimine Hiiumaa p&auml;evakule</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+
+    {% for message in messages %}
+{{message[1]}}
+
+{% endfor %}
+
+
+{% endif %}
+{% endwith %}
+    <li>Kui sul on EOL kood, sisesta see!</li>
+    <li>Kui sul ei ole v&otilde;i ei tule see meelde, sisesta t&auml;isnimi</li>
+        <br>
+
+<form action="" method="post" role="form">
+    {{ form.csrf }}
+<div class="form-group">
+    <label for="email">EOL Kood:</label>
+<input type="number" class="form-control" id="email" name="EOL kood" placeholder="Sinu EOL Kood.">
+
+    <br>
+      <label for="name">Nimi:</label>
+<input type="text" class="form-control" id="name" name="Nimi" placeholder="Sinu nimi, kui EOLi pole v&otilde;i ununenud">
+    <br>
+        <label for="si_pulk">Kui kasutad rendipulka, sisesta siia selle number, oma pulga korral <b>jäta tühjaks</b>:</label>
+        <input type="number" class="form-control" id="si_pulk" name="si_pulk" placeholder="SI-pulga number.">
+    <br>
+<button type="submit" class="btn btn-success">Registreeri</button>
+
+</div>
+</div>
+    </div>
+    </div>
+
+</form>
+{% endblock %}
